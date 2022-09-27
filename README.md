@@ -18,4 +18,6 @@ OPTIONS:
     -r, --resolution <RESOLUTION>    Resolution of generated image [default: 1000x1000]
     -s, --sequence <SEQUENCE>        Sequence of 'a' & 'b' [default: ab]
     -V, --version                    Print version information
+    -x, --x <X>                      Domain (x axis) min and max value [default: 0,4]
+    -y, --y <Y>                      Range (y axis) min and max value [default: 0,4]
 ```
