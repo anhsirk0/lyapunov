@@ -5,7 +5,7 @@
 ![fractal.png](https://github.com/anhsirk0/lyapunov/blob/master/fractal.png)
 
 ## Usage
-```bash
+```text
 Lyapunov fractal generator
 
 USAGE:
