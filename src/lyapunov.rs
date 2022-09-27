@@ -3,6 +3,10 @@ use image::ImageBuffer;
 pub struct Lyapunov {
     sequence: String,
     n: usize,
+    x_min: f32,
+    x_max: f32,
+    y_min: f32,
+    y_max: f32,
     width: u32,
     height: u32,
     output: String,
@@ -10,10 +14,37 @@ pub struct Lyapunov {
 }
 
 impl Lyapunov {
-    pub fn new(sequence: String, n: usize, width: u32, height: u32, output: String) -> Self {
-        Self {
+    pub fn new(
+        sequence: String,
+        n: usize,
+        x_min: f32,
+        x_max: f32,
+        y_min: f32,
+        y_max: f32,
+        width: u32,
+        height: u32,
+        output: String,
+    ) -> Self {
+        let info = format!(
+            "Generating Lyapunov fractal with following parameters.\n\
+             domain:           {}, {}\n\
+             range:            {}, {}\n\
+             sequence:         {}\n\
+             n (iterations):   {}\n\n\
+             Output image properties.\n\
+             name:                      {}\n\
+             resolution:                {}x{}\n",
+            x_min, x_max, y_min, y_max, sequence, n, output, width, height
+        );
+        println!("{}", info,);
+
+        Lyapunov {
             sequence,
             n,
+            x_min,
+            x_max,
+            y_min,
+            y_max,
             width,
             height,
             output,
@@ -52,8 +83,9 @@ impl Lyapunov {
     pub fn generate_image(&self) {
         let mut imgbuf = ImageBuffer::new(self.width, self.height);
         for (x, y, pixel) in imgbuf.enumerate_pixels_mut() {
-            let a = (4.0 / self.height as f32) * (self.height as f32 - y as f32);
-            let b = (4.0 / self.width as f32) * x as f32;
+            let a =
+                ((self.y_max - self.y_min) / self.height as f32) * (self.height as f32 - y as f32);
+            let b = ((self.x_max - self.x_min) / self.width as f32) * x as f32;
 
             let mut red: u8 = 0;
             let mut blue: u8 = 0;
