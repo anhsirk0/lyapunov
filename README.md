@@ -11,10 +11,10 @@ sequence:         ab
 n (iterations):   200
 
 Output image properties.
-name:                      output.png
-resolution:                1000x1000
+name:             output.png
+resolution:       1000x1000
 
-Fractal generated
+Fractal generated successfully.
 ```
 output.png
 ![output.png](https://github.com/anhsirk0/lyapunov/blob/master/output.png)
@@ -28,10 +28,10 @@ sequence:         ab
 n (iterations):   200
 
 Output image properties.
-name:                      ab.png
-resolution:                1000x1000
+name:             ab.png
+resolution:       1000x1000
 
-Fractal generated
+Fractal generated successfully.
 ```
 ab.png
 ![ab.png](https://github.com/anhsirk0/lyapunov/blob/master/ab.png)
