@@ -2,7 +2,39 @@
 
 [What is a Lyapunov fractal?](https://en.wikipedia.org/wiki/Lyapunov_fractal)
 
-![fractal.png](https://github.com/anhsirk0/lyapunov/blob/master/fractal.png)
+```bash
+$ lyapunov
+Generating Lyapunov fractal with following parameters.
+domain:           0, 4
+range:            0, 4
+sequence:         ab
+n (iterations):   200
+
+Output image properties.
+name:                      output.png
+resolution:                1000x1000
+
+Fractal generated
+```
+output.png
+![output.png](https://github.com/anhsirk0/lyapunov/blob/master/output.png)
+
+```bash
+$ lyapunov -s ab -x -4,4 -y -4,4 -o ab.png
+Generating Lyapunov fractal with following parameters.
+domain:           -4, 4
+range:            -4, 4
+sequence:         ab
+n (iterations):   200
+
+Output image properties.
+name:                      ab.png
+resolution:                1000x1000
+
+Fractal generated
+```
+ab.png
+![ab.png](https://github.com/anhsirk0/lyapunov/blob/master/ab.png)
 
 ## Usage
 ```text
