@@ -18,6 +18,13 @@ fn main() {
     }
     let x_min = domain[0];
     let x_max = domain[1];
+    if x_min >= x_max {
+        println!("Max element of Domain must be greater than min element.");
+        if x_min != x_max {
+            println!("Did you mean '{},{}'?", x_max, x_min);
+        }
+        process::exit(1)
+    }
 
     let range: Vec<f32> = args.y.split(",").map(|s| s.parse().unwrap()).collect();
     if range.len() != 2 {
@@ -26,6 +33,13 @@ fn main() {
     }
     let y_min = range[0];
     let y_max = range[1];
+    if y_min >= y_max {
+        println!("Max element of Range must be greater than min element.");
+        if y_min != y_max {
+            println!("Did you mean '{},{}'?", y_max, y_min);
+        }
+        process::exit(1)
+    }
 
     let sizes: Vec<u32> = args
         .resolution

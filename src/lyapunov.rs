@@ -83,22 +83,23 @@ impl Lyapunov {
     pub fn generate_image(&self) {
         let mut imgbuf = ImageBuffer::new(self.width, self.height);
         for (x, y, pixel) in imgbuf.enumerate_pixels_mut() {
-            let a =
-                ((self.y_max - self.y_min) / self.height as f32) * (self.height as f32 - y as f32);
-            let b = ((self.x_max - self.x_min) / self.width as f32) * x as f32;
+            let x_length: f32 = self.x_max - self.x_min;
+            let y_length: f32 = self.y_max - self.y_min;
+            let a = (y_length / self.height as f32) * (self.height - y) as f32 - self.y_min.abs();
+            let b = (x_length / self.width as f32) * x as f32 - self.x_min.abs();
 
             let mut red: u8 = 0;
             let mut blue: u8 = 0;
 
             let lambda = self.exponent(a, b);
-            if !lambda.is_infinite() {
-                if lambda > 0.0 {
-                    blue = (255.0 - lambda * 256.0 / 3.0) as u8;
-                } else if lambda < 0.0 {
-                    red = (255.0 + lambda * 256.0 / 3.0) as u8;
-                } else {
-                    red = 255;
-                }
+            // to scale the r,g,b values
+            let scale = (x_length).max(y_length);
+            if lambda > 0.0 {
+                blue = (255.0 - lambda * 256.0 / scale) as u8;
+            } else if lambda < 0.0 {
+                red = (255.0 + lambda * 256.0 / scale) as u8;
+            } else {
+                red = 255;
             }
 
             // red + green makes yellow
