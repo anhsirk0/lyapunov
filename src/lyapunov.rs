@@ -32,8 +32,8 @@ impl Lyapunov {
              sequence:         {}\n\
              n (iterations):   {}\n\n\
              Output image properties.\n\
-             name:                      {}\n\
-             resolution:                {}x{}\n",
+             name:             {}\n\
+             resolution:       {}x{}\n",
             x_min, x_max, y_min, y_max, sequence, n, output, width, height
         );
         println!("{}", info,);
@@ -108,7 +108,7 @@ impl Lyapunov {
 
         match imgbuf.save(&self.output) {
             Ok(_t) => {
-                println!("Fractal generated")
+                println!("Fractal generated successfully.")
             }
             Err(e) => {
                 println!("Error occured {}", e)
