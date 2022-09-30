@@ -85,7 +85,13 @@ impl Lyapunov {
         for (x, y, pixel) in imgbuf.enumerate_pixels_mut() {
             let x_length: f32 = self.x_max - self.x_min;
             let y_length: f32 = self.y_max - self.y_min;
-            let a = (y_length / self.height as f32) * (self.height - y) as f32 - self.y_min.abs();
+            // let a = (y_length / self.height as f32)
+            //     * ((self.height - y) as f32 - 2.0 * self.height as f32 / y_length);
+            // let b =
+            //     (x_length / self.width as f32) * (x as f32 - 2.0 * self.width as f32 / x_length);
+
+            let a =
+                (y_length / self.height as f32) * (self.height - y - 1) as f32 - self.y_min.abs();
             let b = (x_length / self.width as f32) * x as f32 - self.x_min.abs();
 
             let mut red: u8 = 0;
