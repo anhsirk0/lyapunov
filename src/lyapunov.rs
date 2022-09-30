@@ -33,7 +33,7 @@ impl Lyapunov {
              n (iterations):   {}\n\n\
              Output image properties.\n\
              name:             {}\n\
-             resolution:       {}x{}\n",
+             dimensions:       {}x{}\n",
             x_min, x_max, y_min, y_max, sequence, n, output, width, height
         );
         println!("{}", info,);

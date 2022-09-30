@@ -18,9 +18,9 @@ pub struct LyapunovArgs {
     #[clap(short, long, value_parser, default_value = "output.png")]
     pub output: String,
 
-    /// Resolution of generated image
+    /// Dimensions of generated image
     #[clap(short, long, value_parser, default_value = "1000x1000")]
-    pub resolution: String,
+    pub dimensions: String,
 
     /// Domain (x axis) min and max value
     #[clap(short, long, value_parser, default_value = "0,4")]

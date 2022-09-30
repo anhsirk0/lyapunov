@@ -42,12 +42,12 @@ fn main() {
     }
 
     let sizes: Vec<u32> = args
-        .resolution
+        .dimensions
         .split("x")
         .map(|s| s.parse().unwrap())
         .collect();
     if sizes.len() != 2 {
-        println!("Resolution must be of format '800x800'");
+        println!("Dimensions must be of format '800x800'");
         process::exit(1)
     }
     let width = sizes[0];
