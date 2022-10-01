@@ -12,7 +12,7 @@ n (iterations):   200
 
 Output image properties.
 name:             output.png
-resolution:       1000x1000
+dimensions:       1000x1000
 
 Fractal generated successfully.
 ```
@@ -29,7 +29,7 @@ n (iterations):   200
 
 Output image properties.
 name:             ab.png
-resolution:       1000x1000
+dimensions:       1000x1000
 
 Fractal generated successfully.
 ```
@@ -44,10 +44,10 @@ USAGE:
     lyapunov [OPTIONS]
 
 OPTIONS:
+    -d, --dimensions <DIMENSIONS>    Dimensions of generated image [default: 1000x1000]
     -h, --help                       Print help information
     -n, --n <N>                      Number of iterations for Lyapunov Exponent [default: 200]
     -o, --output <OUTPUT>            Output image [default: output.png]
-    -r, --resolution <RESOLUTION>    Resolution of generated image [default: 1000x1000]
     -s, --sequence <SEQUENCE>        Sequence of 'a' & 'b' [default: ab]
     -V, --version                    Print version information
     -x, --x <X>                      Domain (x axis) min and max value [default: 0,4]
